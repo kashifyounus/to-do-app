@@ -36,7 +36,8 @@ jobs:
       run: yarn build
     
     - name: installing surge 
-      run: yarn install -g surge
+      #run: yarn install -g surge
+      run: yarn global add surge
  
     - name: deploying on surge
       run: surge ./build http://todoapp_by_kashif.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
