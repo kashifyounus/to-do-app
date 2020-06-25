@@ -7,8 +7,6 @@ name: CI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,6 +24,8 @@ jobs:
       uses: actions/setup-node@v1.4.2
       with: 
         version: 12
+    
+    
     - name: GitHub Action for Yarn
       uses: Borales/actions-yarn@v2.3.0
       with:
@@ -37,5 +37,6 @@ jobs:
     
     - name: installing surge 
       run: yarn install -g surge
+ 
     - name: deploying on surge
       run: surge ./build http://todoapp_by_kashif.surge.sh/ --token ${{secrects.SURGE_TOKEN}}
